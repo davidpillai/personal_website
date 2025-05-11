@@ -3,56 +3,278 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="David Sebastiampillai - Lead Consultant specializing in Applied Econometrics and Market Research with over 7 years of experience.">
+    <meta name="keywords" content="David Sebastiampillai, Econometrics, Market Research, Consultant, Data Analysis">
     <title>David Sebastiampillai - Lead Consultant</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --text-main: #374151;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --card-bg: #ffffff;
+            --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
-        .section-title {
-            @apply text-3xl font-bold text-gray-800 mb-12 text-center; /* Increased bottom margin */
-        }
-        .card {
-            @apply bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300;
-        }
-        .skill-card { /* New style for skill category cards */
-            @apply bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col;
-        }
-        .tag {
-            @apply bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium mr-2 mb-2; /* Added margin for spacing */
-        }
-        .nav-link {
-            @apply text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors;
-        }
-        .nav-link.active {
-            @apply text-blue-600 bg-blue-50;
-        }
-        /* Smooth scroll behavior */
+        
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 5rem;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+        
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+            color: #111827;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -0.75rem;
+            width: 6rem;
+            height: 0.25rem;
+            background-color: var(--primary-color);
+            transform: translateX(-50%);
+        }
+        
+        .card {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: var(--card-shadow);
+            transition: box-shadow 0.3s ease, transform 0.2s ease;
+        }
+        
+        .card:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transform: translateY(-2px);
+        }
+        
+        .skill-card {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: var(--card-shadow);
+            transition: box-shadow 0.3s ease, transform 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .skill-card:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transform: translateY(-2px);
+        }
+        
+        .tag {
+            background-color: #dbeafe;
+            color: #2563eb;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+        
+        .nav-link {
+            color: #4b5563;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.2s ease, background-color 0.2s ease;
+        }
+        
+        .nav-link:hover, .nav-link:focus {
+            color: var(--primary-color);
+            outline: none;
+        }
+        
+        .nav-link:focus-visible {
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+        }
+        
+        .nav-link.active {
+            color: var(--primary-color);
+            background-color: #eff6ff;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2), 0 2px 4px -1px rgba(37, 99, 235, 0.1);
+        }
+        
+        .btn-primary:hover, .btn-primary:focus {
+            background-color: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.1), 0 4px 6px -2px rgba(37, 99, 235, 0.05);
+        }
+        
+        .btn-primary:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+        }
+        
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+        
+        @media print {
+            .print-section {
+                page-break-inside: avoid;
+            }
+            
+            nav, #scrollTop, .btn {
+                display: none !important;
+            }
+        }
+        
+        /* Dark mode */
+        .dark {
+            --primary-color: #3b82f6;
+            --primary-dark: #2563eb;
+            --text-main: #f9fafb;
+            --text-light: #d1d5db;
+            --bg-light: #111827;
+            --card-bg: #1f2937;
+            --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.25), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dark body {
+            background-color: #111827;
+            color: #f9fafb;
+        }
+        
+        .dark .bg-white {
+            background-color: #1f2937;
+        }
+        
+        .dark .bg-gray-50 {
+            background-color: #111827;
+        }
+        
+        .dark .text-gray-700, .dark .text-gray-800 {
+            color: #f9fafb;
+        }
+        
+        .dark .text-gray-600 {
+            color: #d1d5db;
+        }
+        
+        .dark .section-title {
+            color: #f9fafb;
+        }
+        
+        .dark .tag {
+            background-color: #1e40af;
+            color: #bfdbfe;
+        }
+        
+        .dark .nav-link {
+            color: #d1d5db;
+        }
+        
+        .dark .nav-link.active {
+            color: #3b82f6;
+            background-color: rgba(59, 130, 246, 0.1);
+        }
+        
+        .dark .btn-outline {
+            border-color: #3b82f6;
+            color: #3b82f6;
+        }
+        
+        .dark .btn-outline:hover {
+            background-color: #3b82f6;
+            color: #111827;
+        }
+        
+        /* Scroll-to-top button */
+        #scrollTop {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: none;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            z-index: 50;
+            transition: all 0.3s ease;
+            border: none;
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        #scrollTop:hover, #scrollTop:focus {
+            background: var(--primary-dark);
+            outline: none;
+        }
+        
+        #scrollTop:focus-visible {
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-700">
-
-    <nav class="bg-white shadow-md sticky top-0 z-50">
+<body class="bg-gray-50">
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:p-4 focus:bg-blue-600 focus:text-white focus:z-50">Skip to main content</a>
+    
+    <nav class="bg-white shadow-md sticky top-0 z-50" aria-label="Main navigation">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center">
-                    <span class="font-bold text-xl text-blue-600">David Sebastiampillai</span>
+                    <a href="#home" class="font-bold text-xl text-blue-600 hover:text-blue-700 transition-colors" aria-label="David Sebastiampillai - Home">David Sebastiampillai</a>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#home" class="nav-link active">Home</a>
+                        <a href="#home" class="nav-link active" aria-current="page">Home</a>
                         <a href="#about" class="nav-link">About</a>
                         <a href="#experience" class="nav-link">Experience</a>
                         <a href="#education" class="nav-link">Education</a>
                         <a href="#skills" class="nav-link">Skills</a>
                         <a href="#contact" class="nav-link">Contact</a>
+                        <button id="darkModeToggle" class="p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Toggle dark mode">
+                            <svg id="lightIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+                            </svg>
+                            <svg id="darkIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
                     </div>
                 </div>
-                <div class="-mr-2 flex md:hidden">
+                <div class="flex md:hidden">
                     <button type="button" id="mobile-menu-button" class="bg-white inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500" aria-controls="mobile-menu" aria-expanded="false">
                         <span class="sr-only">Open main menu</span>
                         <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -67,12 +289,18 @@
         </div>
         <div class="md:hidden hidden" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#home" class="block nav-link active text-base">Home</a>
+                <a href="#home" class="block nav-link active text-base" aria-current="page">Home</a>
                 <a href="#about" class="block nav-link text-base">About</a>
                 <a href="#experience" class="block nav-link text-base">Experience</a>
                 <a href="#education" class="block nav-link text-base">Education</a>
                 <a href="#skills" class="block nav-link text-base">Skills</a>
                 <a href="#contact" class="block nav-link text-base">Contact</a>
+                <button id="mobileDarkModeToggle" class="mt-2 w-full text-left nav-link text-base flex items-center" aria-label="Toggle dark mode">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+                    </svg>
+                    Toggle Dark Mode
+                </button>
             </div>
         </div>
     </nav>
@@ -81,236 +309,355 @@
         <div class="container mx-auto px-6 text-center">
             <h1 class="text-4xl md:text-6xl font-bold mb-4">David Sebastiampillai</h1>
             <p class="text-xl md:text-2xl font-light mb-8">Lead Consultant | Applied Econometrics | Market Research</p>
-            <a href="#contact" class="bg-white text-blue-600 font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-gray-100 transition duration-300">Get In Touch</a>
+            <a href="#contact" class="btn btn-primary">Get In Touch</a>
         </div>
     </header>
 
-    <section id="about" class="py-16 md:py-24 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="section-title">About Me</h2>
-            <div class="max-w-3xl mx-auto text-center text-lg text-gray-600 leading-relaxed">
-                <p>Highly analytical and results-oriented lead consultant with a Master's degree in Applied Econometrics and over 7 years of experience delivering actionable insights through advanced econometric modeling and comprehensive market research. Proven ability to manage the full project lifecycle, from questionnaire design and data collection to sophisticated analysis, visualisation, and executive-level presentation. Key member driving econometric forecasting for strategic planning at BDA Marketing Planning, serving leading clients across automotive, apparel, tourism, and FMCG sectors. Seeking to leverage expertise in quantitative analysis and strategic consulting in a challenging new role.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience" class="py-16 md:py-24 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="section-title">Professional Experience</h2>
-            <div class="space-y-12">
-                <div class="card">
-                    <div class="md:flex justify-between items-start">
-                        <div>
-                            <h3 class="text-2xl font-semibold text-gray-800 mb-1">BDA Marketing Planning</h3>
-                            <p class="text-blue-600 font-medium mb-1">Melbourne, Australia</p>
-                        </div>
-                        <p class="text-gray-500 md:text-right mt-2 md:mt-0">March 2018 - Present</p>
-                    </div>
-                    <div class="mt-4">
-                        <div class="mb-6">
-                            <h4 class="text-xl font-semibold text-gray-700">Lead Consultant</h4>
-                            <p class="text-gray-500 text-sm mb-2">2023 - Present</p>
-                            <h4 class="text-xl font-semibold text-gray-700">Senior Consultant</h4>
-                            <p class="text-gray-500 text-sm mb-2">2020 - 2023</p>
-                            <h4 class="text-xl font-semibold text-gray-700">Consultant</h4>
-                            <p class="text-gray-500 text-sm mb-4">March 2018 - 2020</p>
-
-                            <h5 class="text-lg font-semibold text-gray-700 mt-4 mb-2">Econometric Modeling & Forecasting:</h5>
-                            <ul class="list-disc list-inside text-gray-600 space-y-1">
-                                <li>Spearheaded the firm's econometric modeling capabilities, serving as the primary expert.</li>
-                                <li>Developed and maintained quarterly new vehicle sales projections for a leading automotive OEM, directly informing their strategic decisions.</li>
-                                <li>Delivered bi-annual projections for a major international apparel company, influencing strategic planning at their US headquarters.</li>
-                                <li>Executed multi-country travel demand forecasts for national and state tourism organisations, guiding marketing and development efforts.</li>
-                                <li>Projected sales trends for various chicken product categories, providing actionable recommendations on market prioritisation and portfolio optimisation for the largest chicken producer in Australia.</li>
-                                <li>Regularly presented complex forecast findings and strategic recommendations to executive-level stakeholders.</li>
-                            </ul>
-
-                            <h5 class="text-lg font-semibold text-gray-700 mt-4 mb-2">Market Research & Analysis:</h5>
-                            <ul class="list-disc list-inside text-gray-600 space-y-1">
-                                <li>Managed end-to-end market research projects, encompassing questionnaire design, survey programming (Qualtrics), respondent provider liaison, data cleaning, and analysis.</li>
-                                <li>Translated complex datasets into clear, relevant insights and compelling narratives for client presentations.</li>
-                                <li>Designed and built interactive data visualisation interfaces/dashboards to effectively communicate survey findings and facilitate client exploration.</li>
-                            </ul>
-
-                             <h5 class="text-lg font-semibold text-gray-700 mt-4 mb-2">Client & Project Management:</h5>
-                            <ul class="list-disc list-inside text-gray-600 space-y-1">
-                                <li>Successfully managed multiple concurrent projects for diverse clients across various industries.</li>
-                                <li>Acted as a key point of contact for clients, building strong relationships and ensuring project objectives were met.</li>
-                            </ul>
-                        </div>
-                    </div>
+    <main id="main-content">
+        <section id="about" class="py-16 md:py-24 bg-white print-section">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">About Me</h2>
+                <div class="max-w-3xl mx-auto text-center text-lg text-gray-600 leading-relaxed">
+                    <p>Highly analytical and results-oriented lead consultant with a Master's degree in Applied Econometrics and over 7 years of experience delivering actionable insights through advanced econometric modeling and comprehensive market research. Proven ability to manage the full project lifecycle, from questionnaire design and data collection to sophisticated analysis, visualisation, and executive-level presentation. Key member driving econometric forecasting for strategic planning at BDA Marketing Planning, serving leading clients across automotive, apparel, tourism, and FMCG sectors. Seeking to leverage expertise in quantitative analysis and strategic consulting in a challenging new role.</p>
                 </div>
+            </div>
+        </section>
 
-                <div class="card">
-                     <div class="md:flex justify-between items-start">
-                        <div>
-                            <h3 class="text-2xl font-semibold text-gray-800 mb-1">Monash University</h3>
-                             <p class="text-blue-600 font-medium mb-1">Melbourne, Australia</p>
+        <section id="experience" class="py-16 md:py-24 bg-gray-50 print-section">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Professional Experience</h2>
+                <div class="space-y-12">
+                    <article class="card relative group">
+                        <div class="absolute -left-3 top-0 w-3 h-3 bg-blue-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true"></div>
+                        <div class="md:flex justify-between items-start">
+                            <div>
+                                <h3 class="text-2xl font-semibold text-gray-800 mb-1">BDA Marketing Planning</h3>
+                                <p class="text-blue-600 font-medium mb-1">Melbourne, Australia</p>
+                            </div>
+                            <p class="text-gray-500 md:text-right mt-2 md:mt-0">March 2018 - Present</p>
                         </div>
-                        <p class="text-gray-500 md:text-right mt-2 md:mt-0">July 2019 - July 2021</p>
+                        <div class="mt-4">
+                            <div class="mb-6">
+                                <h4 class="text-xl font-semibold text-gray-700">Lead Consultant</h4>
+                                <p class="text-gray-500 text-sm mb-2">2023 - Present</p>
+                                <h4 class="text-xl font-semibold text-gray-700">Senior Consultant</h4>
+                                <p class="text-gray-500 text-sm mb-2">2020 - 2023</p>
+                                <h4 class="text-xl font-semibold text-gray-700">Consultant</h4>
+                                <p class="text-gray-500 text-sm mb-4">March 2018 - 2020</p>
+                                <h5 class="text-lg font-semibold text-gray-700 mt-4 mb-2">Econometric Modeling & Forecasting:</h5>
+                                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                    <li>Spearheaded the firm's econometric modeling capabilities, serving as the primary expert.</li>
+                                    <li>Developed and maintained quarterly new vehicle sales projections for a leading automotive OEM, directly informing their strategic decisions.</li>
+                                    <li>Delivered bi-annual projections for a major international apparel company, influencing strategic planning at their US headquarters.</li>
+                                    <li>Executed multi-country travel demand forecasts for national and state tourism organisations, guiding marketing and development efforts.</li>
+                                    <li>Projected sales trends for various chicken product categories, providing actionable recommendations on market prioritisation and portfolio optimisation for the largest chicken producer in Australia.</li>
+                                    <li>Regularly presented complex forecast findings and strategic recommendations to executive-level stakeholders.</li>
+                                </ul>
+                                <h5 class="text-lg font-semibold text-gray-700 mt-4 mb-2">Market Research & Analysis:</h5>
+                                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                    <li>Managed end-to-end market research projects, encompassing questionnaire design, survey programming (Qualtrics), respondent provider liaison, data cleaning, and analysis.</li>
+                                    <li>Translated complex datasets into clear, relevant insights and compelling narratives for client presentations.</li>
+                                    <li>Designed and built interactive data visualisation interfaces/dashboards to effectively communicate survey findings and facilitate client exploration.</li>
+                                </ul>
+                                <h5 class="text-lg font-semibold text-gray-700 mt-4 mb-2">Client & Project Management:</h5>
+                                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                    <li>Successfully managed multiple concurrent projects for diverse clients across various industries.</li>
+                                    <li>Acted as a key point of contact for clients, building strong relationships and ensuring project objectives were met.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="card relative group">
+                        <div class="absolute -left-3 top-0 w-3 h-3 bg-blue-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true"></div>
+                        <div class="md:flex justify-between items-start">
+                            <div>
+                                <h3 class="text-2xl font-semibold text-gray-800 mb-1">Monash University</h3>
+                                <p class="text-blue-600 font-medium mb-1">Melbourne, Australia</p>
+                            </div>
+                            <p class="text-gray-500 md:text-right mt-2 md:mt-0">July 2019 - July 2021</p>
+                        </div>
+                        <div class="mt-4">
+                            <h4 class="text-xl font-semibold text-gray-700">Research Assistant</h4>
+                            <p class="text-gray-500 text-sm mb-2">Department of Economics</p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Supported faculty research in the Economics department.</li>
+                                <li>Conducted literature reviews, data collection, and initial analysis.</li>
+                                <li>Researched how limited English proficiency and geographic factors affect healthcare usage in Australia to guide public policy and reduce costs.</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="py-16 md:py-24 bg-white print-section">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Education</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <article class="card">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-1">Masters of Applied Econometrics</h3>
+                        <p class="text-blue-600 font-medium mb-1">Monash University, Melbourne, VIC, Australia</p>
+                        <p class="text-gray-500 text-sm mb-2">2016 - 2017</p>
+                        <p class="text-gray-600">Thesis: "Fertility Returns to Women's Education: Post-Lasso IV Estimation Approach"</p>
+                    </article>
+                    <article class="card">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-1">Bachelor of Economics</h3>
+                        <p class="text-blue-600 font-medium mb-1">The University of Tampa, Tampa, FL, USA</p>
+                        <p class="text-gray-500 text-sm mb-2">2012 - 2015</p>
+                        <p class="text-gray-600">Area of concentration: Macroeconomics and Econometrics</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-16 md:py-24 bg-gray-50 print-section">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Core Competencies</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="skill-card">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" />
+                            </svg>
+                            Technical Skills
+                        </h3>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2 pl-4">
+                            <li>Stata</li>
+                            <li>R</li>
+                            <li>EViews</li>
+                            <li>Python</li>
+                            <li>Qualtrics</li>
+                            <li>Survey Monkey</li>
+                            <li>Tableau</li>
+                            <li>Power BI</li>
+                            <li>Qlik</li>
+                            <li>Advanced Excel (VBA)</li>
+                            <li>PowerPoint</li>
+                            <li>Word</li>
+                            <li>Database Management</li>
+                        </ul>
                     </div>
-                    <div class="mt-4">
-                        <h4 class="text-xl font-semibold text-gray-700">Research Assistant</h4>
-                        <p class="text-gray-500 text-sm mb-2">Department of Economics</p>
-                        <ul class="list-disc list-inside text-gray-600 space-y-1">
-                            <li>Supported faculty research in the Economics department.</li>
-                            <li>Conducted literature reviews, data collection, and initial analysis.</li>
-                            <li>Researched how limited English proficiency and geographic factors affect healthcare usage in Australia to guide public policy and reduce costs.</li>
+                    <div class="skill-card">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
+                            </svg>
+                            Soft Skills
+                        </h3>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2 pl-4">
+                            <li>Client Presentation</li>
+                            <li>Stakeholder Management</li>
+                            <li>Project Management</li>
+                            <li>Data Storytelling</li>
+                            <li>Problem-Solving</li>
+                            <li>Communication (Written & Verbal)</li>
+                            <li>Analytical Thinking</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M3 6a3 3 0 013-3h10a1 1 0 01.8 1.6L14.25 8l2.55 3.4A1 1 0 0116 13H6a1 1 0 00-1 1v3a1 1 0 11-2 0V6z" clip-rule="evenodd" />
+                            </svg>
+                            Languages
+                        </h3>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2 pl-4">
+                            <li>English (Fluent)</li>
+                            <li>Sinhalese (Fluent)</li>
+                            <li>French (Intermediate)</li>
+                            <li>Arabic (Read/Write - Intermediate)</li>
+                            <li>Spanish (Intermediate)</li>
                         </ul>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="education" class="py-16 md:py-24 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="section-title">Education</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="card">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-1">Masters of Applied Econometrics</h3>
-                    <p class="text-blue-600 font-medium mb-1">Monash University, Melbourne, VIC, Australia</p>
-                    <p class="text-gray-500 text-sm mb-2">2016 - 2017</p>
-                    <p class="text-gray-600">Thesis on "Fertility Returns to Women's Education: Post-Lasso IV Estimation Approach"</p>
-                </div>
-                <div class="card">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-1">Bachelor of Economics</h3>
-                    <p class="text-blue-600 font-medium mb-1">The University of Tampa, Tampa, FL, USA</p>
-                    <p class="text-gray-500 text-sm mb-2">2012 - 2015</p>
-                    <p class="text-gray-600">Area of concentration: Macroeconomics and Econometrics</p>
-                </div>
+        <section id="contact" class="py-16 md:py-24 bg-white print-section">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                    I'm currently seeking new opportunities and would love to hear from you. Whether you have a question or just want to say hi, feel free to reach out.
+                </p>
+                <a href="mailto:david.sebastiampillai@gmail.com" class="btn btn-primary text-lg" aria-label="Email David Sebastiampillai">
+                    Email: david.sebastiampillai@gmail.com
+                </a>
             </div>
-        </div>
-    </section>
-
-    <section id="skills" class="py-16 md:py-24 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="section-title">Core Competencies</h2> <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"> {/* Adjusted grid for potentially 3 cards */}
-                <div class="skill-card">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Technical Skills</h3>
-                    <div class="flex flex-wrap">
-                        <span class="tag">Stata</span>
-                        <span class="tag">R</span>
-                        <span class="tag">EViews</span>
-                        <span class="tag">Python</span>
-                        <span class="tag">Qualtrics</span>
-                        <span class="tag">Survey Monkey</span>
-                        <span class="tag">Tableau</span>
-                        <span class="tag">Power BI</span>
-                        <span class="tag">Qlik</span>
-                        <span class="tag">Advanced Excel (VBA)</span>
-                        <span class="tag">PowerPoint</span>
-                        <span class="tag">Word</span>
-                        <span class="tag">Database</span>
-                    </div>
-                </div>
-
-                <div class="skill-card">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Soft Skills</h3>
-                     <div class="flex flex-wrap">
-                        <span class="tag">Client Presentation</span>
-                        <span class="tag">Stakeholder Management</span>
-                        <span class="tag">Project Management</span>
-                        <span class="tag">Data Storytelling</span>
-                        <span class="tag">Problem-Solving</span>
-                        <span class="tag">Communication (Written & Verbal)</span>
-                        <span class="tag">Analytical Thinking</span>
-                    </div>
-                </div>
-
-                <div class="skill-card">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Languages</h3>
-                     <div class="flex flex-wrap">
-                        <span class="tag">English (Fluent)</span>
-                        <span class="tag">Sinhalese (Fluent)</span>
-                        <span class="tag">French (Intermediate)</span>
-                        <span class="tag">Arabic (Read/Write - Intermediate)</span>
-                        <span class="tag">Spanish (Intermediate)</span>
-                    </div>
-                </div>
-                </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-16 md:py-24 bg-white">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="section-title">Get In Touch</h2>
-            <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-                I'm currently seeking new opportunities and would love to hear from you. Whether you have a question or just want to say hi, feel free to reach out.
-            </p>
-            <a href="mailto:david.sebastiampillai@gmail.com" class="inline-block bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-blue-700 transition duration-300 text-lg">
-                Email: david.sebastiampillai@gmail.com
-            </a>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer class="bg-gray-800 text-gray-300 py-8 text-center">
         <div class="container mx-auto px-6">
             <p>&copy; <span id="currentYear"></span> David Sebastiampillai. All rights reserved.</p>
-            <p class="text-sm mt-1">Built with Tailwind CSS</p>
+            <div class="mt-4 flex justify-center space-x-4">
+                <a href="https://www.linkedin.com/" class="text-gray-300 hover:text-white transition-colors" aria-label="LinkedIn profile">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/" class="text-gray-300 hover:text-white transition-colors" aria-label="GitHub profile">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+                <a href="https://twitter.com/" class="text-gray-300 hover:text-white transition-colors" aria-label="Twitter profile">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                    </svg>
+                </a>
+            </div>
+            <p class="text-sm mt-4">Built with HTML, CSS, and JavaScript</p>
         </div>
     </footer>
+
+    <!-- Scroll to top button -->
+    <button id="scrollTop" aria-label="Scroll to top" class="hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
 
     <script>
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        const menuIconOpen = mobileMenuButton.querySelector('svg:first-child');
-        const menuIconClose = mobileMenuButton.querySelector('svg:last-child');
-
+        
         mobileMenuButton.addEventListener('click', () => {
-            const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
+            const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
             mobileMenuButton.setAttribute('aria-expanded', !expanded);
             mobileMenu.classList.toggle('hidden');
-            menuIconOpen.classList.toggle('hidden');
-            menuIconOpen.classList.toggle('block');
-            menuIconClose.classList.toggle('hidden');
-            menuIconClose.classList.toggle('block');
+            
+            // Toggle between menu icons
+            mobileMenuButton.querySelectorAll('svg').forEach(icon => {
+                icon.classList.toggle('hidden');
+                icon.classList.toggle('block');
+            });
         });
 
-        // Smooth scroll for navigation links & active link highlighting
-        const navLinks = document.querySelectorAll('.nav-link');
-        const sections = document.querySelectorAll('section[id], header[id]'); // Include header for 'home'
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu .nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenuButton.click();
+                }
+            });
+        });
 
-        // Function to update active link
+        // Active navigation highlighting
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section[id], header[id]');
+        
         function updateActiveLink() {
-            let currentSectionId = 'home'; // Default to home
+            let currentSectionId = '';
+            const scrollPosition = window.scrollY + 100; // Offset for sticky header
+            
+            // Find current section
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.clientHeight;
-                // Check if section is in viewport (with some offset for better UX)
-                if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
                     currentSectionId = section.getAttribute('id');
+                    
+                    // Update ARIA attributes for accessibility
+                    navLinks.forEach(link => {
+                        const href = link.getAttribute('href').substring(1);
+                        link.setAttribute('aria-current', href === currentSectionId ? 'page' : 'false');
+                    });
                 }
             });
-
+            
+            // Update active class
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                // For mobile and desktop links
-                if (link.getAttribute('href') === `#${currentSectionId}` || (link.classList.contains('block') && link.getAttribute('href') === `#${currentSectionId}`)) {
+                if (link.getAttribute('href') === `#${currentSectionId}`) {
                     link.classList.add('active');
                 }
             });
         }
 
-        // Add click listeners for smooth scroll and active link update
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                // For mobile menu, close it after click
-                if (mobileMenu.classList.contains('block') && !mobileMenu.classList.contains('hidden')) {
-                     mobileMenuButton.click(); // Simulate click to close
+        // Dark mode toggle functionality
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const mobileDarkModeToggle = document.getElementById('mobileDarkModeToggle');
+        const lightIcon = document.getElementById('lightIcon');
+        const darkIcon = document.getElementById('darkIcon');
+        
+        // Check for saved dark mode preference
+        if (localStorage.getItem('darkMode') === 'true' || 
+            (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && 
+            localStorage.getItem('darkMode') !== 'false')) {
+            document.documentElement.classList.add('dark');
+            lightIcon.classList.add('hidden');
+            darkIcon.classList.remove('hidden');
+        }
+        
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            const isDarkMode = document.documentElement.classList.contains('dark');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            // Toggle icons
+            lightIcon.classList.toggle('hidden');
+            darkIcon.classList.toggle('hidden');
+        }
+        
+        darkModeToggle.addEventListener('click', toggleDarkMode);
+        if (mobileDarkModeToggle) {
+            mobileDarkModeToggle.addEventListener('click', toggleDarkMode);
+        }
+
+        // Scroll to top button functionality
+        const scrollTopBtn = document.getElementById('scrollTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.remove('hidden');
+                scrollTopBtn.classList.add('flex');
+            } else {
+                scrollTopBtn.classList.add('hidden');
+                scrollTopBtn.classList.remove('flex');
+            }
+        });
+        
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Update copyright year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Initialize active link on page load
+        window.addEventListener('DOMContentLoaded', updateActiveLink);
+        window.addEventListener('scroll', updateActiveLink);
+        window.addEventListener('resize', updateActiveLink);
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // Calculate position with offset for sticky header
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update URL without page jump
+                    window.history.pushState(null, null, targetId);
                 }
             });
         });
-        
-        // Call on scroll and load
-        window.addEventListener('scroll', updateActiveLink);
-        window.addEventListener('load', updateActiveLink);
-
-
-        // Set current year in footer
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
-
 </body>
 </html>
