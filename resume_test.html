@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Sebastiampillai - Lead Consultant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .section-title {
+            @apply text-3xl font-bold text-gray-800 mb-12 text-center; /* Increased bottom margin */
+        }
+        .card {
+            @apply bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300;
+        }
+        .skill-card { /* New style for skill category cards */
+            @apply bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col;
+        }
+        .tag {
+            @apply bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium mr-2 mb-2; /* Added margin for spacing */
+        }
+        .nav-link {
+            @apply text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors;
+        }
+        .nav-link.active {
+            @apply text-blue-600 bg-blue-50;
+        }
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-700">
+
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <span class="font-bold text-xl text-blue-600">David Sebastiampillai</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home" class="nav-link active">Home</a>
+                        <a href="#about" class="nav-link">About</a>
+                        <a href="#experience" class="nav-link">Experience</a>
+                        <a href="#education" class="nav-link">Education</a>
+                        <a href="#skills" class="nav-link">Skills</a>
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" id="mobile-menu-button" class="bg-white inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block nav-link active text-base">Home</a>
+                <a href="#about" class="block nav-link text-base">About</a>
+                <a href="#experience" class="block nav-link text-base">Experience</a>
+                <a href="#education" class="block nav-link text-base">Education</a>
+                <a href="#skills" class="block nav-link text-base">Skills</a>
+                <a href="#contact" class="block nav-link text-base">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home" class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20 md:py-32">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">David Sebastiampillai</h1>
+            <p class="text-xl md:text-2xl font-light mb-8">Lead Consultant | Applied Econometrics | Market Research</p>
+            <a href="#contact" class="bg-white text-blue-600 font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-gray-100 transition duration-300">Get In Touch</a>
+        </div>
+    </header>
+
+    <section id="about" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title">About Me</h2>
+            <div class="max-w-3xl mx-auto text-center text-lg text-gray-600 leading-relaxed">
+                <p>Highly analytical and results-oriented lead consultant with a Master's degree in Applied Econometrics and over 7 years of experience delivering actionable insights through advanced econometric modeling and comprehensive market research. Proven ability to manage the full project lifecycle, from questionnaire design and data collection to sophisticated analysis, visualisation, and executive-level presentation. Key member driving econometric forecasting for strategic planning at BDA Marketing Planning, serving leading clients across automotive, apparel, tourism, and FMCG sectors. Seeking to leverage expertise in quantitative analysis and strategic consulting in a challenging new role.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="space-y-12">
+                <div class="card">
+                    <div class="md:flex justify-between items-start">
+                        <div>
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-1">BDA Marketing Planning</h3>
+                            <p class="text-blue-600 font-medium mb-1">Melbourne, Australia</p>
+                        </div>
+                        <p class="text-gray-500 md:text-right mt-2 md:mt-0">March 2018 - Present</p>
+                    </div>
+                    <div class="mt-4">
+                        <div class="mb-6">
+                            <h4 class="text-xl font-semibold text-gray-700">Lead Consultant</h4>
+                            <p class="text-gray-500 text-sm mb-2">2023 - Present</p>
+                            <h4 class="text-xl font-semibold text-gray-700">Senior Consultant</h4>
+                            <p class="text-gray-500 text-sm mb-2">2020 - 2023</p>
+                            <h4 class="text-xl font-semibold text-gray-700">Consultant</h4>
+                            <p class="text-gray-500 text-sm mb-4">March 2018 - 2020</p>
+
+                            <h5 class="text-lg font-semibold text-gray-700 mt-4 mb-2">Econometric Modeling & Forecasting:</h5>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Spearheaded the firm's econometric modeling capabilities, serving as the primary expert.</li>
+                                <li>Developed and maintained quarterly new vehicle sales projections for a leading automotive OEM, directly informing their strategic decisions.</li>
+                                <li>Delivered bi-annual projections for a major international apparel company, influencing strategic planning at their US headquarters.</li>
+                                <li>Executed multi-country travel demand forecasts for national and state tourism organisations, guiding marketing and development efforts.</li>
+                                <li>Projected sales trends for various chicken product categories, providing actionable recommendations on market prioritisation and portfolio optimisation for the largest chicken producer in Australia.</li>
+                                <li>Regularly presented complex forecast findings and strategic recommendations to executive-level stakeholders.</li>
+                            </ul>
+
+                            <h5 class="text-lg font-semibold text-gray-700 mt-4 mb-2">Market Research & Analysis:</h5>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Managed end-to-end market research projects, encompassing questionnaire design, survey programming (Qualtrics), respondent provider liaison, data cleaning, and analysis.</li>
+                                <li>Translated complex datasets into clear, relevant insights and compelling narratives for client presentations.</li>
+                                <li>Designed and built interactive data visualisation interfaces/dashboards to effectively communicate survey findings and facilitate client exploration.</li>
+                            </ul>
+
+                             <h5 class="text-lg font-semibold text-gray-700 mt-4 mb-2">Client & Project Management:</h5>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Successfully managed multiple concurrent projects for diverse clients across various industries.</li>
+                                <li>Acted as a key point of contact for clients, building strong relationships and ensuring project objectives were met.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                     <div class="md:flex justify-between items-start">
+                        <div>
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-1">Monash University</h3>
+                             <p class="text-blue-600 font-medium mb-1">Melbourne, Australia</p>
+                        </div>
+                        <p class="text-gray-500 md:text-right mt-2 md:mt-0">July 2019 - July 2021</p>
+                    </div>
+                    <div class="mt-4">
+                        <h4 class="text-xl font-semibold text-gray-700">Research Assistant</h4>
+                        <p class="text-gray-500 text-sm mb-2">Department of Economics</p>
+                        <ul class="list-disc list-inside text-gray-600 space-y-1">
+                            <li>Supported faculty research in the Economics department.</li>
+                            <li>Conducted literature reviews, data collection, and initial analysis.</li>
+                            <li>Researched how limited English proficiency and geographic factors affect healthcare usage in Australia to guide public policy and reduce costs.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title">Education</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-1">Masters of Applied Econometrics</h3>
+                    <p class="text-blue-600 font-medium mb-1">Monash University, Melbourne, VIC, Australia</p>
+                    <p class="text-gray-500 text-sm mb-2">2016 - 2017</p>
+                    <p class="text-gray-600">Thesis on "Fertility Returns to Women's Education: Post-Lasso IV Estimation Approach"</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-1">Bachelor of Economics</h3>
+                    <p class="text-blue-600 font-medium mb-1">The University of Tampa, Tampa, FL, USA</p>
+                    <p class="text-gray-500 text-sm mb-2">2012 - 2015</p>
+                    <p class="text-gray-600">Area of concentration: Macroeconomics and Econometrics</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title">Core Competencies</h2> <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"> {/* Adjusted grid for potentially 3 cards */}
+                <div class="skill-card">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Technical Skills</h3>
+                    <div class="flex flex-wrap">
+                        <span class="tag">Stata</span>
+                        <span class="tag">R</span>
+                        <span class="tag">EViews</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Qualtrics</span>
+                        <span class="tag">Survey Monkey</span>
+                        <span class="tag">Tableau</span>
+                        <span class="tag">Power BI</span>
+                        <span class="tag">Qlik</span>
+                        <span class="tag">Advanced Excel (VBA)</span>
+                        <span class="tag">PowerPoint</span>
+                        <span class="tag">Word</span>
+                        <span class="tag">Database</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Soft Skills</h3>
+                     <div class="flex flex-wrap">
+                        <span class="tag">Client Presentation</span>
+                        <span class="tag">Stakeholder Management</span>
+                        <span class="tag">Project Management</span>
+                        <span class="tag">Data Storytelling</span>
+                        <span class="tag">Problem-Solving</span>
+                        <span class="tag">Communication (Written & Verbal)</span>
+                        <span class="tag">Analytical Thinking</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Languages</h3>
+                     <div class="flex flex-wrap">
+                        <span class="tag">English (Fluent)</span>
+                        <span class="tag">Sinhalese (Fluent)</span>
+                        <span class="tag">French (Intermediate)</span>
+                        <span class="tag">Arabic (Read/Write - Intermediate)</span>
+                        <span class="tag">Spanish (Intermediate)</span>
+                    </div>
+                </div>
+                </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                I'm currently seeking new opportunities and would love to hear from you. Whether you have a question or just want to say hi, feel free to reach out.
+            </p>
+            <a href="mailto:david.sebastiampillai@gmail.com" class="inline-block bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-blue-700 transition duration-300 text-lg">
+                Email: david.sebastiampillai@gmail.com
+            </a>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-gray-300 py-8 text-center">
+        <div class="container mx-auto px-6">
+            <p>&copy; <span id="currentYear"></span> David Sebastiampillai. All rights reserved.</p>
+            <p class="text-sm mt-1">Built with Tailwind CSS</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIconOpen = mobileMenuButton.querySelector('svg:first-child');
+        const menuIconClose = mobileMenuButton.querySelector('svg:last-child');
+
+        mobileMenuButton.addEventListener('click', () => {
+            const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
+            mobileMenuButton.setAttribute('aria-expanded', !expanded);
+            mobileMenu.classList.toggle('hidden');
+            menuIconOpen.classList.toggle('hidden');
+            menuIconOpen.classList.toggle('block');
+            menuIconClose.classList.toggle('hidden');
+            menuIconClose.classList.toggle('block');
+        });
+
+        // Smooth scroll for navigation links & active link highlighting
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section[id], header[id]'); // Include header for 'home'
+
+        // Function to update active link
+        function updateActiveLink() {
+            let currentSectionId = 'home'; // Default to home
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                // Check if section is in viewport (with some offset for better UX)
+                if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                    currentSectionId = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                // For mobile and desktop links
+                if (link.getAttribute('href') === `#${currentSectionId}` || (link.classList.contains('block') && link.getAttribute('href') === `#${currentSectionId}`)) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Add click listeners for smooth scroll and active link update
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                // For mobile menu, close it after click
+                if (mobileMenu.classList.contains('block') && !mobileMenu.classList.contains('hidden')) {
+                     mobileMenuButton.click(); // Simulate click to close
+                }
+            });
+        });
+        
+        // Call on scroll and load
+        window.addEventListener('scroll', updateActiveLink);
+        window.addEventListener('load', updateActiveLink);
+
+
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
