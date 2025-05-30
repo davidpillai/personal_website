@@ -1,663 +1,944 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="David Sebastiampillai - Lead Consultant specializing in Applied Econometrics and Market Research with over 7 years of experience.">
-    <meta name="keywords" content="David Sebastiampillai, Econometrics, Market Research, Consultant, Data Analysis">
-    <title>David Sebastiampillai - Lead Consultant</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>David Sebastiampillai | Lead Consultant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root {
-            --primary-color: #2563eb;
-            --primary-dark: #1d4ed8;
-            --text-main: #374151;
-            --text-light: #6b7280;
-            --bg-light: #f9fafb;
-            --card-bg: #ffffff;
-            --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --accent-color: #00B7A8; /* Teal */
+            --accent-hover-color: #00A396; /* Darker Teal */
+            --navy-color: #0B1D3A;
+            --off-white-color: #F8F9FA;
         }
-        
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 5rem;
-        }
-        
+
+        /* Custom scrollbar styling */
         body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-main);
-            line-height: 1.6;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-color) var(--off-white-color);
         }
-        
-        .section-title {
-            font-size: 2.25rem;
-            font-weight: 800;
-            margin-bottom: 3rem;
-            text-align: center;
-            position: relative;
-            color: #111827;
+        ::-webkit-scrollbar {
+            width: 8px;
         }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: -0.75rem;
-            width: 6rem;
-            height: 0.25rem;
-            background-color: var(--primary-color);
-            transform: translateX(-50%);
+        ::-webkit-scrollbar-track {
+            background: var(--off-white-color);
         }
-        
-        .card {
-            background-color: var(--card-bg);
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-hover-color);
+        }
+
+        /* Glow effect for CTA buttons */
+        .glow-on-hover:hover {
+            box-shadow: 0 0 15px 3px rgba(0, 183, 168, 0.4); /* Teal glow */
+        }
+
+        /* Experience Section - Accordion Style */
+        .experience-accordion-item .accordion-header {
+            cursor: pointer;
+            padding: 1rem 1.5rem; /* py-4 px-6 */
+            background-color: #E9ECEF; /* gray-200 for a slight contrast */
+            border-radius: 0.375rem; /* rounded-md */
+            transition: background-color 0.3s ease, color 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .experience-accordion-item .accordion-header:hover {
+            background-color: #DEE2E6; /* gray-300 */
+        }
+        .experience-accordion-item .accordion-header.active {
+            background-color: var(--accent-color);
+            color: var(--navy-color); /* Text color for active header */
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+         .experience-accordion-item .accordion-header.active .accordion-title {
+            color: var(--navy-color); /* Ensure title color changes */
+        }
+        .experience-accordion-item .accordion-header.active .accordion-icon {
+            transform: rotate(180deg);
+            color: var(--navy-color); /* Icon color for active header */
+        }
+        .experience-accordion-item .accordion-icon {
+            transition: transform 0.3s ease;
+            color: var(--accent-color); /* Default icon color */
+        }
+        .experience-accordion-item .accordion-title {
+            transition: color 0.3s ease; /* For smooth color change on active */
+        }
+
+        .experience-accordion-item .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.7s ease-out, padding 0.7s ease-out; /* Slower for more content */
+            background-color: #F8F9FA; /* off-white */
+            border: 1px solid #E9ECEF; /* gray-200 */
+            border-top: none;
+            border-bottom-left-radius: 0.375rem;
+            border-bottom-right-radius: 0.375rem;
+        }
+        .experience-accordion-item .accordion-content.open {
+            max-height: 1500px; /* Increased for potentially long BDA content */
+            padding: 1.5rem; /* p-6 */
+        }
+        .experience-accordion-item .accordion-content .role-details {
+            margin-bottom: 1rem; /* mb-4 */
+        }
+         .experience-accordion-item .accordion-content .role-details p {
+            margin-bottom: 0.25rem; /* mb-1 */
+        }
+        .experience-accordion-item .accordion-content h4 { /* Subheadings within content */
+            font-size: 1rem; /* text-base */
+            font-weight: 600; /* font-semibold */
+            color: var(--deep-navy);
+            margin-top: 1rem; /* mt-4 */
+            margin-bottom: 0.5rem; /* mb-2 */
+        }
+        .experience-accordion-item .accordion-content ul {
+            list-style-type: disc;
+            padding-left: 1.25rem; /* pl-5 */
+            margin-top: 0.5rem; /* mt-2 */
+            color: #495057; /* gray-700 */
+        }
+         .experience-accordion-item .accordion-content ul li {
+            margin-bottom: 0.25rem; /* mb-1 for list items */
+        }
+
+        /* Project card: hover to reveal details from bottom */
+        .project-card-details {
+            opacity: 0;
+            transform: translateY(100%);
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            position: absolute; inset: 0;
+            background-color: var(--accent-color);
+            color: var(--navy-color);
             padding: 1.5rem;
-            border-radius: 0.5rem;
-            box-shadow: var(--card-shadow);
-            transition: box-shadow 0.3s ease, transform 0.2s ease;
-        }
-        
-        .card:hover {
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            transform: translateY(-2px);
-        }
-        
-        .skill-card {
-            background-color: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            box-shadow: var(--card-shadow);
-            transition: box-shadow 0.3s ease, transform 0.2s ease;
             display: flex;
             flex-direction: column;
-        }
-        
-        .skill-card:hover {
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            transform: translateY(-2px);
-        }
-        
-        .tag {
-            background-color: #dbeafe;
-            color: #2563eb;
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.875rem;
-            font-weight: 500;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-            display: inline-block;
-        }
-        
-        .nav-link {
-            color: #4b5563;
-            padding: 0.5rem 0.75rem;
-            border-radius: 0.375rem;
-            font-size: 0.875rem;
-            font-weight: 500;
-            transition: color 0.2s ease, background-color 0.2s ease;
-        }
-        
-        .nav-link:hover, .nav-link:focus {
-            color: var(--primary-color);
-            outline: none;
-        }
-        
-        .nav-link:focus-visible {
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
-        }
-        
-        .nav-link.active {
-            color: var(--primary-color);
-            background-color: #eff6ff;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 0.75rem 2rem;
+            justify-content: center;
             border-radius: 0.5rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            text-align: center;
         }
-        
-        .btn-primary {
-            background-color: var(--primary-color);
-            color: white;
-            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2), 0 2px 4px -1px rgba(37, 99, 235, 0.1);
-        }
-        
-        .btn-primary:hover, .btn-primary:focus {
-            background-color: var(--primary-dark);
-            transform: translateY(-1px);
-            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.1), 0 4px 6px -2px rgba(37, 99, 235, 0.05);
-        }
-        
-        .btn-primary:focus-visible {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
-        }
-        
-        .btn-primary:active {
+        .project-card:hover .project-card-details {
+            opacity: 1;
             transform: translateY(0);
         }
-        
-        @media print {
-            .print-section {
-                page-break-inside: avoid;
-            }
-            
-            nav, #scrollTop, .btn {
-                display: none !important;
-            }
+        .project-card .project-content-original {
+             transition: opacity 0.2s ease-in-out;
         }
-        
-        /* Dark mode */
-        .dark {
-            --primary-color: #3b82f6;
-            --primary-dark: #2563eb;
-            --text-main: #f9fafb;
-            --text-light: #d1d5db;
-            --bg-light: #111827;
-            --card-bg: #1f2937;
-            --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.25), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+        .project-card:hover .project-content-original {
+            opacity: 0;
         }
-        
-        .dark body {
-            background-color: #111827;
-            color: #f9fafb;
+
+        /* Tooltip for thesis & skills */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted var(--navy-color);
+            cursor: help;
         }
-        
-        .dark .bg-white {
-            background-color: #1f2937;
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 280px;
+            background-color: var(--navy-color);
+            color: var(--off-white-color);
+            text-align: left;
+            border-radius: 6px;
+            padding: 10px 15px;
+            position: absolute;
+            z-index: 10;
+            bottom: 135%;
+            left: 50%;
+            margin-left: -140px; /* Half of width */
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.875rem;
+            line-height: 1.4rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
-        
-        .dark .bg-gray-50 {
-            background-color: #111827;
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: var(--navy-color) transparent transparent transparent;
         }
-        
-        .dark .text-gray-700, .dark .text-gray-800 {
-            color: #f9fafb;
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
         }
-        
-        .dark .text-gray-600 {
-            color: #d1d5db;
+        /* Simpler tooltip for skills using Tailwind group-hover */
+        .skill-tooltip-trigger .skill-tooltip-content {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            pointer-events: none;
         }
-        
-        .dark .section-title {
-            color: #f9fafb;
+        .skill-tooltip-trigger:hover .skill-tooltip-content {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
         }
-        
-        .dark .tag {
-            background-color: #1e40af;
-            color: #bfdbfe;
-        }
-        
-        .dark .nav-link {
-            color: #d1d5db;
-        }
-        
-        .dark .nav-link.active {
-            color: #3b82f6;
-            background-color: rgba(59, 130, 246, 0.1);
-        }
-        
-        .dark .btn-outline {
-            border-color: #3b82f6;
-            color: #3b82f6;
-        }
-        
-        .dark .btn-outline:hover {
-            background-color: #3b82f6;
-            color: #111827;
-        }
-        
-        /* Scroll-to-top button */
-        #scrollTop {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            display: none;
-            background: var(--primary-color);
-            color: white;
-            padding: 0.75rem;
-            border-radius: 0.5rem;
-            cursor: pointer;
-            z-index: 50;
-            transition: all 0.3s ease;
-            border: none;
-            width: 3rem;
-            height: 3rem;
+
+
+        /* Headshot placeholder styling */
+        .headshot-placeholder {
+            background-color: #E5E7EB; /* gray-200 */
             display: flex;
             align-items: center;
             justify-content: center;
+            color: #6B7280; /* gray-500 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .headshot-placeholder:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 183, 168, 0.3); /* Accent color glow */
+        }
+
+
+        /* Interactive 3D Cube Styles */
+        .cube-container-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+            padding-top: 2rem;
+        }
+        .cube-container {
+            width: 150px;
+            height: 150px;
+            position: relative;
+            perspective: 1000px;
+        }
+        .cube {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            transition: transform 0.1s linear;
+            cursor: grab;
+        }
+        .cube:active {
+            cursor: grabbing;
+        }
+        .cube__face {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border: 1px solid var(--off-white-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--off-white-color);
+            opacity: 0.9;
+            padding: 0.5rem;
+            text-align: center;
+            line-height: 1.2;
+        }
+        .cube__face--front  { background: var(--accent-color); transform: rotateY(  0deg) translateZ(75px); }
+        .cube__face--right  { background: var(--accent-hover-color); transform: rotateY( 90deg) translateZ(75px); }
+        .cube__face--back   { background: var(--accent-color); transform: rotateY(180deg) translateZ(75px); }
+        .cube__face--left   { background: var(--accent-hover-color); transform: rotateY(-90deg) translateZ(75px); }
+        .cube__face--top    { background: var(--navy-color); transform: rotateX( 90deg) translateZ(75px); }
+        .cube__face--bottom { background: var(--navy-color); transform: rotateX(-90deg) translateZ(75px); }
+
+        /* Hero Section Background Transition */
+        #home {
+            transition: background-color 1.5s ease-in-out;
+        }
+        .hero-bg-initial {
+            background-color: var(--accent-color) !important;
+        }
+        .hero-bg-final {
+             background-color: var(--navy-color) !important;
         }
         
-        #scrollTop:hover, #scrollTop:focus {
-            background: var(--primary-dark);
-            outline: none;
+        /* Hero Icon Animation */
+        .hero-icon-animate {
+            opacity: 0;
+            transform: scale(0.5);
+            animation: popIn 0.5s ease-out forwards;
         }
-        
-        #scrollTop:focus-visible {
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.5); }
+            80% { opacity: 1; transform: scale(1.1); }
+            100% { opacity: 1; transform: scale(1); }
         }
+
+        /* Role Progression Timeline (BDA Experience) */
+        .role-progression { position: relative; padding-left: 20px; margin-top: 1rem; }
+        .role-progression::before { content: ''; position: absolute; left: 5px; top: 8px; bottom: 8px; width: 2px; background-color: var(--accent-color); }
+        .role-item { position: relative; margin-bottom: 0.75rem; /* mb-3 */ padding-left: 10px; }
+        .role-item::before { content: ''; position: absolute; left: -20px; /* Adjust based on padding-left */ top: 6px; width: 12px; height: 12px; background-color: var(--accent-color); border-radius: 50%; border: 2px solid var(--off-white-color); z-index: 1; }
+        .role-item:last-child { margin-bottom: 0; }
+
+        /* Back to Top Button */
+        #backToTopBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none; /* Hidden by default */
+            background-color: var(--accent-color);
+            color: var(--navy-color);
+            border: none;
+            border-radius: 0.375rem; /* rounded-md */
+            padding: 0.75rem; /* p-3 */
+            cursor: pointer;
+            z-index: 100;
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+        #backToTopBtn.show {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        #backToTopBtn:hover {
+            background-color: var(--accent-hover-color);
+            transform: translateY(-2px) scale(1.05);
+        }
+
     </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-navy': '#0B1D3A',
+                        'off-white': '#F8F9FA',
+                        'accent': '#00B7A8',
+                        'accent-hover': '#00A396',
+                        'gray-50': '#F9FAFB', // Added for My Approach section
+                        'gray-200': '#E9ECEF',
+                        'gray-300': '#DEE2E6',
+                        'gray-600': '#6C757D',
+                        'gray-700': '#495057',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', "Segoe UI", 'Roboto', "Helvetica Neue", 'Arial', "Noto Sans", 'sans-serif', "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'wiggle': 'wiggle 0.6s ease-in-out infinite alternate',
+                        'bounce-slow': 'bounceSlow 2s infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        wiggle: {
+                            '0%': { transform: 'rotate(-3deg) scale(1.0)' },
+                            '100%': { transform: 'rotate(3deg) scale(1.1)' }
+                        },
+                        bounceSlow: {
+                            '0%, 100%': { transform: 'translateY(-15%)', animationTimingFunction: 'cubic-bezier(0.8,0,1,1)' },
+                            '50%': { transform: 'translateY(0)', animationTimingFunction: 'cubic-bezier(0,0,0.2,1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="bg-gray-50">
-    <!-- Skip to main content for accessibility -->
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:p-4 focus:bg-blue-600 focus:text-white focus:z-50">Skip to main content</a>
-    
-    <nav class="bg-white shadow-md sticky top-0 z-50" aria-label="Main navigation">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex items-center">
-                    <a href="#home" class="font-bold text-xl text-blue-600 hover:text-blue-700 transition-colors" aria-label="David Sebastiampillai - Home">David Sebastiampillai</a>
-                </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#home" class="nav-link active" aria-current="page">Home</a>
-                        <a href="#about" class="nav-link">About</a>
-                        <a href="#experience" class="nav-link">Experience</a>
-                        <a href="#education" class="nav-link">Education</a>
-                        <a href="#skills" class="nav-link">Skills</a>
-                        <a href="#contact" class="nav-link">Contact</a>
-                        <button id="darkModeToggle" class="p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Toggle dark mode">
-                            <svg id="lightIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-                            </svg>
-                            <svg id="darkIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                <div class="flex md:hidden">
-                    <button type="button" id="mobile-menu-button" class="bg-white inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500" aria-controls="mobile-menu" aria-expanded="false">
-                        <span class="sr-only">Open main menu</span>
-                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="md:hidden hidden" id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#home" class="block nav-link active text-base" aria-current="page">Home</a>
-                <a href="#about" class="block nav-link text-base">About</a>
-                <a href="#experience" class="block nav-link text-base">Experience</a>
-                <a href="#education" class="block nav-link text-base">Education</a>
-                <a href="#skills" class="block nav-link text-base">Skills</a>
-                <a href="#contact" class="block nav-link text-base">Contact</a>
-                <button id="mobileDarkModeToggle" class="mt-2 w-full text-left nav-link text-base flex items-center" aria-label="Toggle dark mode">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-                    </svg>
-                    Toggle Dark Mode
-                </button>
+<body class="bg-off-white text-deep-navy antialiased font-sans">
+
+    <nav class="sticky top-0 z-50 bg-off-white/90 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+            <div class="flex justify-between items-center py-4 md:py-5">
+                <a href="#home" class="text-xl font-bold text-deep-navy hover:text-accent transition-colors">DAVID SEBASTIAMPILLAI</a>
+                <ul class="hidden md:flex space-x-8">
+                    <li><a href="#about" class="text-deep-navy hover:text-accent transition-colors transform hover:-translate-y-0.5">About</a></li>
+                    <li><a href="#my-approach" class="text-deep-navy hover:text-accent transition-colors transform hover:-translate-y-0.5">My Approach</a></li>
+                    <li><a href="#experience" class="text-deep-navy hover:text-accent transition-colors transform hover:-translate-y-0.5">Experience</a></li>
+                    <li><a href="#projects" class="text-deep-navy hover:text-accent transition-colors transform hover:-translate-y-0.5">Projects</a></li>
+                    <li><a href="#skills" class="text-deep-navy hover:text-accent transition-colors transform hover:-translate-y-0.5">Skills</a></li>
+                    <li><a href="#education" class="text-deep-navy hover:text-accent transition-colors transform hover:-translate-y-0.5">Education</a></li>
+                </ul>
             </div>
         </div>
     </nav>
 
-    <header id="home" class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20 md:py-32">
-        <div class="container mx-auto px-6 text-center">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4">David Sebastiampillai</h1>
-            <p class="text-xl md:text-2xl font-light mb-8">Lead Consultant | Applied Econometrics | Market Research</p>
-            <a href="#contact" class="btn btn-primary">Get In Touch</a>
-        </div>
-    </header>
+    <main>
+        <section id="home" class="hero-bg-initial relative min-h-screen flex flex-col justify-center items-center text-center py-20 text-off-white overflow-hidden">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl z-10">
+                <div style="animation-delay: 0.2s;" class="animate-fade-in-up">
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 uppercase tracking-tight">David Sebastiampillai</h1>
+                </div>
+                <div style="animation-delay: 0.4s;" class="animate-fade-in-up">
+                    <p class="text-xl sm:text-2xl md:text-3xl text-accent mb-6 min-h-[3rem] sm:min-h-[4rem]" id="heroSubtitle"></p> </div>
+                <div style="animation-delay: 0.6s;" class="animate-fade-in-up">
+                    <p class="text-lg sm:text-xl md:text-2xl mb-8 max-w-2xl mx-auto">"Turning data into strategic clarity."</p>
+                </div>
+                <div style="animation-delay: 0.8s;" class="animate-fade-in-up">
+                    <div class="text-md sm:text-lg mb-10 space-y-2 sm:space-y-0 sm:space-x-6 flex flex-col sm:flex-row justify-center items-center">
+                        <span class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 mr-2 text-accent hero-icon-animate" style="animation-delay: 1.0s;">
+                                <path fill-rule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+                            </svg>
+                            Melbourne, Australia
+                        </span>
+                        <a href="mailto:david.sebastiampillai@gmail.com" class="hover:text-accent transition-colors flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 mr-2 text-accent hero-icon-animate" style="animation-delay: 1.1s;">
+                              <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
+                              <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
+                            </svg>
+                            david.sebastiampillai@gmail.com
+                        </a>
+                    </div>
+                </div>
+                <div style="animation-delay: 1.0s;" class="animate-fade-in-up">
+                    <a href="DS Resume (May 2025).pdf"
+                       target="_blank" rel="noopener noreferrer"
+                       class="bg-accent hover:bg-accent-hover text-deep-navy font-semibold py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 glow-on-hover inline-block">
+                        Download Resume
+                    </a>
+                </div>
+            </div>
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10">
+                <a href="#about" aria-label="Scroll to about section">
+                    <svg class="w-8 h-8 text-off-white animate-bounce-slow" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                        <path d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </a>
+            </div>
+        </section>
 
-    <main id="main-content">
-        <section id="about" class="py-16 md:py-24 bg-white print-section">
-            <div class="container mx-auto px-6">
-                <h2 class="section-title">About Me</h2>
-                <div class="max-w-3xl mx-auto text-center text-lg text-gray-600 leading-relaxed">
-                    <p>Highly analytical and results-oriented lead consultant with a Master's degree in Applied Econometrics and over 7 years of experience delivering actionable insights through advanced econometric modeling and comprehensive market research. Proven ability to manage the full project lifecycle, from questionnaire design and data collection to sophisticated analysis, visualisation, and executive-level presentation. Key member driving econometric forecasting for strategic planning at BDA Marketing Planning, serving leading clients across automotive, apparel, tourism, and FMCG sectors. Seeking to leverage expertise in quantitative analysis and strategic consulting in a challenging new role.</p>
+        <section id="about" class="py-16 md:py-24 bg-off-white text-deep-navy">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+                <div class="grid md:grid-cols-3 gap-10 md:gap-16 items-center">
+                    <div class="md:col-span-1 flex flex-col items-center md:items-start">
+                        <div class="headshot-placeholder w-48 h-48 md:w-60 md:h-60 rounded-full shadow-lg text-4xl font-semibold">
+                            DS
+                        </div>
+                        <p class="text-sm text-gray-600 mt-3 text-center md:text-left italic">The analyst behind the insights. Photo coming soon!</p>
+                    </div>
+                    <div class="md:col-span-2">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-deep-navy">About Me</h2>
+                        <p class="text-lg mb-4 leading-relaxed">
+                            Highly analytical and results-oriented lead consultant with a Master's degree in Applied Econometrics and over 7 years of experience delivering actionable insights through advanced econometric modeling and comprehensive market research.
+                        </p>
+                        <p class="text-lg mb-4 leading-relaxed">
+                            Proven ability to manage the full project lifecycle, from questionnaire design and data collection to sophisticated analysis, visualisation, and executive-level presentation. Key member driving econometric forecasting for strategic planning at BDA Marketing Planning, serving leading clients across <strong class="text-accent font-semibold">automotive</strong>, <strong class="text-accent font-semibold">apparel</strong>, <strong class="text-accent font-semibold">tourism</strong>, and <strong class="text-accent font-semibold">FMCG</strong> sectors.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="experience" class="py-16 md:py-24 bg-gray-50 print-section">
-            <div class="container mx-auto px-6">
-                <h2 class="section-title">Professional Experience</h2>
-                <div class="space-y-12">
-                    <article class="card relative group">
-                        <div class="absolute -left-3 top-0 w-3 h-3 bg-blue-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true"></div>
-                        <div class="md:flex justify-between items-start">
-                            <div>
-                                <h3 class="text-2xl font-semibold text-gray-800 mb-1">BDA Marketing Planning</h3>
-                                <p class="text-blue-600 font-medium mb-1">Melbourne, Australia</p>
-                            </div>
-                            <p class="text-gray-500 md:text-right mt-2 md:mt-0">March 2018 - Present</p>
+        <section id="my-approach" class="py-16 md:py-24 bg-gray-50 text-deep-navy">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+                <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center">My Approach to Value Creation</h2>
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <div class="p-6 transform hover:scale-105 transition-transform duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 mx-auto mb-6 text-accent">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM13.5 10.5h.008v.008h-.008V10.5z" />
+                        </svg>
+                        <h3 class="text-xl font-semibold mb-3 text-deep-navy">1. Discover & Define</h3>
+                        <p class="text-gray-700 leading-relaxed text-sm">Thoroughly understanding client needs, market context, and data potential to define precise objectives and scope.</p>
+                    </div>
+                    <div class="p-6 transform hover:scale-105 transition-transform duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 mx-auto mb-6 text-accent">
+                             <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" />
+                        </svg>
+                        <h3 class="text-xl font-semibold mb-3 text-deep-navy">2. Model & Analyse</h3>
+                        <p class="text-gray-700 leading-relaxed text-sm">Leveraging advanced modelling and research methodologies to uncover robust, data-driven insights.</p>
+                    </div>
+                    <div class="p-6 transform hover:scale-105 transition-transform duration-300">
+                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 mx-auto mb-6 text-accent">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75zM15.75 15.75l-2.489-2.489m0 0a3.375 3.375 0 10-4.773-4.773 3.375 3.375 0 004.774 4.774z" />
+                        </svg>
+                        <h3 class="text-xl font-semibold mb-3 text-deep-navy">3. Strategise & Communicate</h3>
+                        <p class="text-gray-700 leading-relaxed text-sm">Translating complex findings into clear, compelling narratives and actionable strategic recommendations for impact.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="py-16 md:py-24 bg-off-white text-deep-navy">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+                <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center text-deep-navy">Professional Experience</h2>
+                <div class="space-y-4">
+                    <div class="experience-accordion-item">
+                        <div class="accordion-header" aria-expanded="false" aria-controls="bda-content">
+                            <h3 class="text-xl font-semibold accordion-title text-deep-navy">BDA Marketing Planning</h3>
+                            <svg class="w-6 h-6 accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </div>
-                        <div class="mt-4">
-                            <div class="mb-6">
-                                <h4 class="text-xl font-semibold text-gray-700">Lead Consultant</h4>
-                                <p class="text-gray-500 text-sm mb-2">2023 - Present</p>
-                                <h4 class="text-xl font-semibold text-gray-700">Senior Consultant</h4>
-                                <p class="text-gray-500 text-sm mb-2">2020 - 2023</p>
-                                <h4 class="text-xl font-semibold text-gray-700">Consultant</h4>
-                                <p class="text-gray-500 text-sm mb-4">March 2018 - 2020</p>
-                                <h5 class="text-lg font-semibold text-gray-700 mt-4 mb-2">Econometric Modeling & Forecasting:</h5>
-                                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                        <div class="accordion-content" id="bda-content">
+                            <div class="role-details text-gray-600">
+                                <p>Melbourne, Australia</p>
+                                <p>March 2018 – Present</p>
+                                <div class="italic mt-3 role-progression">
+                                    <div class="role-item">Lead Consultant (2023 - Present)</div>
+                                    <div class="role-item">Senior Consultant (2020 - 2023)</div>
+                                    <div class="role-item">Consultant (Mar 2018 - 2020)</div>
+                                </div>
+                            </div>
+                            <div>
+                                <h4>Econometrics & Forecasting:</h4>
+                                <ul class="space-y-1">
                                     <li>Spearheaded the firm's econometric modeling capabilities, serving as the primary expert.</li>
-                                    <li>Developed and maintained quarterly new vehicle sales projections for a leading automotive OEM, directly informing their strategic decisions.</li>
-                                    <li>Delivered bi-annual projections for a major international apparel company, influencing strategic planning at their US headquarters.</li>
-                                    <li>Executed multi-country travel demand forecasts for national and state tourism organisations, guiding marketing and development efforts.</li>
-                                    <li>Projected sales trends for various chicken product categories, providing actionable recommendations on market prioritisation and portfolio optimisation for the largest chicken producer in Australia.</li>
-                                    <li>Regularly presented complex forecast findings and strategic recommendations to executive-level stakeholders.</li>
-                                </ul>
-                                <h5 class="text-lg font-semibold text-gray-700 mt-4 mb-2">Market Research & Analysis:</h5>
-                                <ul class="list-disc list-inside text-gray-600 space-y-1">
-                                    <li>Managed end-to-end market research projects, encompassing questionnaire design, survey programming (Qualtrics), respondent provider liaison, data cleaning, and analysis.</li>
-                                    <li>Translated complex datasets into clear, relevant insights and compelling narratives for client presentations.</li>
-                                    <li>Designed and built interactive data visualisation interfaces/dashboards to effectively communicate survey findings and facilitate client exploration.</li>
-                                </ul>
-                                <h5 class="text-lg font-semibold text-gray-700 mt-4 mb-2">Client & Project Management:</h5>
-                                <ul class="list-disc list-inside text-gray-600 space-y-1">
-                                    <li>Successfully managed multiple concurrent projects for diverse clients across various industries.</li>
-                                    <li>Acted as a key point of contact for clients, building strong relationships and ensuring project objectives were met.</li>
+                                    <li>Developed and maintained quarterly new vehicle sales projections for a leading automotive OEM.</li>
+                                    <li>Delivered bi-annual projections for a major international apparel company, influencing US strategic planning.</li>
+                                    <li>Executed multi-country travel demand forecasts for national and state tourism organisations.</li>
+                                    <li>Projected sales trends for chicken products, providing actionable recommendations for Australia's largest producer.</li>
                                 </ul>
                             </div>
-                        </div>
-                    </article>
-                    <article class="card relative group">
-                        <div class="absolute -left-3 top-0 w-3 h-3 bg-blue-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true"></div>
-                        <div class="md:flex justify-between items-start">
                             <div>
-                                <h3 class="text-2xl font-semibold text-gray-800 mb-1">Monash University</h3>
-                                <p class="text-blue-600 font-medium mb-1">Melbourne, Australia</p>
+                                <h4>Market Research & Analytics:</h4>
+                                <ul class="space-y-1">
+                                    <li>Managed end-to-end market research projects (questionnaire design, Qualtrics programming, data collection, analysis).</li>
+                                    <li>Translated complex datasets into clear, relevant insights and compelling narratives for diverse audiences.</li>
+                                    <li>Designed interactive data visualisation dashboards (Tableau, Power BI) for client exploration and insight discovery.</li>
+                                </ul>
                             </div>
-                            <p class="text-gray-500 md:text-right mt-2 md:mt-0">July 2019 - July 2021</p>
+                            <div>
+                                <h4>Client Management & Strategic Advisory:</h4>
+                                <ul class="space-y-1">
+                                    <li>Regularly presented complex forecast findings and strategic recommendations to executive-level stakeholders, influencing key business decisions.</li>
+                                    <li>Successfully managed multiple concurrent projects for diverse clients across automotive, apparel, tourism, and FMCG sectors.</li>
+                                    <li>Provided strategic advice based on research outcomes to help clients achieve business objectives.</li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="mt-4">
-                            <h4 class="text-xl font-semibold text-gray-700">Research Assistant</h4>
-                            <p class="text-gray-500 text-sm mb-2">Department of Economics</p>
-                            <ul class="list-disc list-inside text-gray-600 space-y-1">
-                                <li>Supported faculty research in the Economics department.</li>
-                                <li>Conducted literature reviews, data collection, and initial analysis.</li>
-                                <li>Researched how limited English proficiency and geographic factors affect healthcare usage in Australia to guide public policy and reduce costs.</li>
+                    </div>
+
+                    <div class="experience-accordion-item">
+                        <div class="accordion-header" aria-expanded="false" aria-controls="monash-content">
+                            <h3 class="text-xl font-semibold accordion-title text-deep-navy">Monash University, Centre for Health Economics</h3>
+                            <svg class="w-6 h-6 accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="accordion-content" id="monash-content">
+                             <div class="role-details text-gray-600">
+                                <p>Research Assistant</p>
+                                <p>July 2019 – July 2021</p>
+                            </div>
+                            <ul class="space-y-1">
+                                <li>Supported faculty research in the Centre for Health Economics department.</li>
+                                <li>Conducted literature reviews, data collection, and initial statistical analysis for academic papers.</li>
+                                <li>Contributed to research on how limited English proficiency and geographic factors affect healthcare usage in Australia, aiming to inform public policy and reduce healthcare costs.</li>
                             </ul>
                         </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section id="education" class="py-16 md:py-24 bg-white print-section">
-            <div class="container mx-auto px-6">
-                <h2 class="section-title">Education</h2>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <article class="card">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-1">Masters of Applied Econometrics</h3>
-                        <p class="text-blue-600 font-medium mb-1">Monash University, Melbourne, VIC, Australia</p>
-                        <p class="text-gray-500 text-sm mb-2">2016 - 2017</p>
-                        <p class="text-gray-600">Thesis: "Fertility Returns to Women's Education: Post-Lasso IV Estimation Approach"</p>
-                    </article>
-                    <article class="card">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-1">Bachelor of Economics</h3>
-                        <p class="text-blue-600 font-medium mb-1">The University of Tampa, Tampa, FL, USA</p>
-                        <p class="text-gray-500 text-sm mb-2">2012 - 2015</p>
-                        <p class="text-gray-600">Area of concentration: Macroeconomics and Econometrics</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section id="skills" class="py-16 md:py-24 bg-gray-50 print-section">
-            <div class="container mx-auto px-6">
-                <h2 class="section-title">Core Competencies</h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="skill-card">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" />
-                            </svg>
-                            Technical Skills
-                        </h3>
-                        <ul class="list-disc list-inside text-gray-600 space-y-2 pl-4">
-                            <li>Stata</li>
-                            <li>R</li>
-                            <li>EViews</li>
-                            <li>Python</li>
-                            <li>Qualtrics</li>
-                            <li>Survey Monkey</li>
-                            <li>Tableau</li>
-                            <li>Power BI</li>
-                            <li>Qlik</li>
-                            <li>Advanced Excel (VBA)</li>
-                            <li>PowerPoint</li>
-                            <li>Word</li>
-                            <li>Database Management</li>
-                        </ul>
-                    </div>
-                    <div class="skill-card">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
-                            </svg>
-                            Soft Skills
-                        </h3>
-                        <ul class="list-disc list-inside text-gray-600 space-y-2 pl-4">
-                            <li>Client Presentation</li>
-                            <li>Stakeholder Management</li>
-                            <li>Project Management</li>
-                            <li>Data Storytelling</li>
-                            <li>Problem-Solving</li>
-                            <li>Communication (Written & Verbal)</li>
-                            <li>Analytical Thinking</li>
-                        </ul>
-                    </div>
-                    <div class="skill-card">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                <path fill-rule="evenodd" d="M3 6a3 3 0 013-3h10a1 1 0 01.8 1.6L14.25 8l2.55 3.4A1 1 0 0116 13H6a1 1 0 00-1 1v3a1 1 0 11-2 0V6z" clip-rule="evenodd" />
-                            </svg>
-                            Languages
-                        </h3>
-                        <ul class="list-disc list-inside text-gray-600 space-y-2 pl-4">
-                            <li>English (Native)</li>
-                            <li>Sinhalese (Fluent)</li>
-                            <li>French (Intermediate)</li>
-                            <li>Arabic (Read/Write - Intermediate)</li>
-                            <li>Spanish (Intermediate)</li>
-                        </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="py-16 md:py-24 bg-white print-section">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="section-title">Get In Touch</h2>
-                <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-                    I'm currently seeking new opportunities and would love to hear from you. Whether you have a question or just want to say hi, feel free to reach out.
+        <section id="projects" class="py-16 md:py-24 bg-deep-navy text-off-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+                <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Featured Projects</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="project-card bg-off-white text-deep-navy p-6 rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300 relative overflow-hidden min-h-[200px] sm:min-h-[220px] md:min-h-[250px] flex flex-col group">
+                        <div class="project-content-original flex-grow flex flex-col justify-between">
+                            <h3 class="text-xl font-semibold mb-3 text-accent">Automotive OEM Sales Projections</h3>
+                            <p class="text-gray-700 text-sm leading-relaxed">Developed and maintained quarterly new vehicle sales projections for a leading automotive OEM.</p>
+                        </div>
+                        <div class="project-card-details">
+                            <p class="text-sm font-bold mb-1">Key Outcome:</p>
+                            <p class="text-sm">Directly informed client's strategic decisions, improving planning accuracy and inventory management.</p>
+                        </div>
+                    </div>
+                    <div class="project-card bg-off-white text-deep-navy p-6 rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300 relative overflow-hidden min-h-[200px] sm:min-h-[220px] md:min-h-[250px] flex flex-col group">
+                         <div class="project-content-original flex-grow flex flex-col justify-between">
+                            <h3 class="text-xl font-semibold mb-3 text-accent">International Apparel Strategic Planning</h3>
+                            <p class="text-gray-700 text-sm leading-relaxed">Delivered bi-annual projections for a major international apparel company for their US headquarters.</p>
+                        </div>
+                        <div class="project-card-details">
+                            <p class="text-sm font-bold mb-1">Key Outcome:</p>
+                            <p class="text-sm">Significantly influenced strategic planning at US headquarters, optimizing global apparel distribution and marketing efforts.</p>
+                        </div>
+                    </div>
+                    <div class="project-card bg-off-white text-deep-navy p-6 rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300 relative overflow-hidden min-h-[200px] sm:min-h-[220px] md:min-h-[250px] flex flex-col group">
+                        <div class="project-content-original flex-grow flex flex-col justify-between">
+                            <h3 class="text-xl font-semibold mb-3 text-accent">Multi-Country Tourism Demand Forecasts</h3>
+                            <p class="text-gray-700 text-sm leading-relaxed">Executed travel demand forecasts for national and state tourism organisations across multiple countries.</p>
+                        </div>
+                         <div class="project-card-details">
+                            <p class="text-sm font-bold mb-1">Key Outcome:</p>
+                            <p class="text-sm">Guided marketing and development strategies, enhancing tourism campaign effectiveness and resource allocation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-16 md:py-24 bg-off-white text-deep-navy">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+                <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center">Technical Skills</h2>
+                <div class="space-y-10">
+                    <div>
+                        <h3 class="text-xl font-semibold text-deep-navy mb-4 text-center md:text-left">Econometric Software</h3>
+                        <div class="flex flex-wrap justify-center md:justify-start gap-3">
+                            <span class="skill-tooltip-trigger relative bg-accent/10 text-accent text-sm font-semibold px-5 py-2.5 rounded-full shadow-sm hover:shadow-md transition-shadow cursor-help">
+                                Stata
+                                <span class="skill-tooltip-content absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-max max-w-xs p-3 bg-deep-navy text-off-white text-xs rounded-md shadow-lg z-20">
+                                    Advanced econometric modeling, microeconometrics and IV estimation for forecasting and causal inference.
+                                </span>
+                            </span>
+                            <span class="skill-tooltip-trigger relative bg-accent/10 text-accent text-sm font-semibold px-5 py-2.5 rounded-full shadow-sm hover:shadow-md transition-shadow cursor-help">
+                                R
+                                <span class="skill-tooltip-content absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-max max-w-xs p-3 bg-deep-navy text-off-white text-xs rounded-md shadow-lg z-20">
+                                    Statistical computing, data visualization (ggplot2), and machine learning model development, time series forecasting .
+                                </span>
+                            </span>
+                             <span class="skill-tooltip-trigger relative bg-accent/10 text-accent text-sm font-semibold px-5 py-2.5 rounded-full shadow-sm hover:shadow-md transition-shadow cursor-help">
+                                Python
+                                <span class="skill-tooltip-content absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-max max-w-xs p-3 bg-deep-navy text-off-white text-xs rounded-md shadow-lg z-20">
+                                    Data manipulation (Pandas, NumPy), scripting for automation, and developing custom analytical tools.
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-deep-navy mb-4 text-center md:text-left">Survey Software</h3>
+                        <div class="flex flex-wrap justify-center md:justify-start gap-3">
+                            <span class="skill-tooltip-trigger relative bg-accent/10 text-accent text-sm font-semibold px-5 py-2.5 rounded-full shadow-sm hover:shadow-md transition-shadow cursor-help">
+                                Qualtrics
+                                <span class="skill-tooltip-content absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-max max-w-xs p-3 bg-deep-navy text-off-white text-xs rounded-md shadow-lg z-20">
+                                    End-to-end survey design, programming complex logic, data collection, and initial analysis.
+                                </span>
+                            </span>
+                            <span class="bg-accent/10 text-accent text-sm font-semibold px-5 py-2.5 rounded-full shadow-sm hover:shadow-md transition-shadow">Survey Monkey</span>
+                            <span class="bg-accent/10 text-accent text-sm font-semibold px-5 py-2.5 rounded-full shadow-sm hover:shadow-md transition-shadow">Q Research Software</span>
+                            <span class="bg-accent/10 text-accent text-sm font-semibold px-5 py-2.5 rounded-full shadow-sm hover:shadow-md transition-shadow">SPSS</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-deep-navy mb-4 text-center md:text-left">Business Intelligence Tools</h3>
+                        <div class="flex flex-wrap justify-center md:justify-start gap-3">
+                            <span class="skill-tooltip-trigger relative bg-accent/10 text-accent text-sm font-semibold px-5 py-2.5 rounded-full shadow-sm hover:shadow-md transition-shadow cursor-help">
+                                Tableau
+                                <span class="skill-tooltip-content absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-max max-w-xs p-3 bg-deep-navy text-off-white text-xs rounded-md shadow-lg z-20">
+                                    Creating interactive dashboards and compelling data visualizations for client presentations and insight discovery.
+                                </span>
+                            </span>
+                            <span class="bg-accent/10 text-accent text-sm font-semibold px-5 py-2.5 rounded-full shadow-sm hover:shadow-md transition-shadow">Power BI</span>
+                            <span class="skill-tooltip-trigger relative bg-accent/10 text-accent text-sm font-semibold px-5 py-2.5 rounded-full shadow-sm hover:shadow-md transition-shadow cursor-help">
+                                Qlik
+                                <span class="skill-tooltip-content absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-max max-w-xs p-3 bg-deep-navy text-off-white text-xs rounded-md shadow-lg z-20">
+                                    Creating interactive dashboards and compelling data visualisations for client presentations and insight discovery.
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-deep-navy mb-4 text-center md:text-left">Microsoft Suite</h3>
+                        <div class="flex flex-wrap justify-center md:justify-start gap-3">
+                            <span class="skill-tooltip-trigger relative bg-accent/10 text-accent text-sm font-semibold px-5 py-2.5 rounded-full shadow-sm hover:shadow-md transition-shadow cursor-help">
+                                Advanced Excel (VBA)
+                                <span class="skill-tooltip-content absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-max max-w-xs p-3 bg-deep-navy text-off-white text-xs rounded-md shadow-lg z-20">
+                                   Complex data manipulation, financial modeling, and automating repetitive tasks using VBA macros.
+                                </span>
+                            </span>
+                            <span class="bg-accent/10 text-accent text-sm font-semibold px-5 py-2.5 rounded-full shadow-sm hover:shadow-md transition-shadow">PowerPoint</span>
+                            <span class="bg-accent/10 text-accent text-sm font-semibold px-5 py-2.5 rounded-full shadow-sm hover:shadow-md transition-shadow">Word</span>
+                            <span class="bg-accent/10 text-accent text-sm font-semibold px-5 py-2.5 rounded-full shadow-sm hover:shadow-md transition-shadow">Database (Access)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="py-16 md:py-24 bg-off-white text-deep-navy">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+                <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Education</h2>
+                <div class="max-w-3xl mx-auto space-y-8">
+                    <div class="p-6 bg-gray-50 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <h3 class="text-xl font-semibold text-accent">Monash University, Melbourne, VIC, Australia</h3>
+                        <p class="text-gray-700">Masters of Applied Econometrics</p>
+                        <p class="text-sm text-gray-500">2016 – 2017</p>
+                        <p class="text-sm text-gray-600 mt-2">
+                            Thesis:
+                            <span class="tooltip">"Fertility Returns to Women's Education: Post-Lasso IV Estimation Approach"
+                                <span class="tooltiptext">This research explored the causal impact of women's educational attainment on fertility rates, employing advanced instrumental variable techniques, specifically a Post-Lasso IV method, to address endogeneity and provide robust estimates.</span>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <h3 class="text-xl font-semibold text-accent">The University of Tampa, Tampa, FL, USA</h3>
+                        <p class="text-gray-700">Bachelor of Science in Economics</p>
+                        <p class="text-sm text-gray-500">2012 – 2015</p>
+                        <p class="text-sm text-gray-600 mt-2">Area of concentration: Macroeconomics and Econometrics. Graduated Summa Cum Laude.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="interactive-cube" class="py-16 md:py-24 bg-deep-navy text-off-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center">A Bit of Fun: Interactive Cube</h2>
+                <p class="text-center text-lg mb-10 max-w-xl mx-auto text-off-white/80">
+                    Click and drag the cube below to spin it around. Each face represents a core element of my work.
                 </p>
-                <a href="mailto:david.sebastiampillai@gmail.com" class="btn btn-primary text-lg" aria-label="Email David Sebastiampillai">
-                    Email: david.sebastiampillai@gmail.com
-                </a>
+                <div class="cube-container-wrapper">
+                    <div class="cube-container">
+                        <div class="cube" id="interactiveCube">
+                            <div class="cube__face cube__face--front">Data</div>
+                            <div class="cube__face cube__face--back">Insight</div>
+                            <div class="cube__face cube__face--right">Strategy</div>
+                            <div class="cube__face cube__face--left">Growth</div>
+                            <div class="cube__face cube__face--top">Clarity</div>
+                            <div class="cube__face cube__face--bottom">Impact</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
+
     </main>
 
-    <footer class="bg-gray-800 text-gray-300 py-8 text-center">
-        <div class="container mx-auto px-6">
-            <p>&copy; <span id="currentYear"></span> David Sebastiampillai. All rights reserved.</p>
-            <div class="mt-4 flex justify-center space-x-4">
-                <a href="https://www.linkedin.com/" class="text-gray-300 hover:text-white transition-colors" aria-label="LinkedIn profile">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                    </svg>
-                </a>
-                <a href="https://github.com/" class="text-gray-300 hover:text-white transition-colors" aria-label="GitHub profile">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                    </svg>
-                </a>
-                <a href="https://twitter.com/" class="text-gray-300 hover:text-white transition-colors" aria-label="Twitter profile">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                    </svg>
-                </a>
+    <footer class="py-12 bg-off-white text-deep-navy/70 border-t border-gray-200">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl text-center">
+             <div class="mb-6">
+                <p class="text-deep-navy/90 mb-3 text-lg font-semibold">Connect with Me</p>
+                <div class="flex justify-center space-x-6">
+                    <a href="mailto:david.sebastiampillai@gmail.com" class="text-deep-navy/70 hover:text-accent transition-colors group" aria-label="Email David">
+                        <svg class="w-7 h-7 group-hover:animate-wiggle" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        <span class="sr-only">Email</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/davidsplaceholder" target="_blank" rel="noopener noreferrer" class="text-deep-navy/70 hover:text-accent transition-colors group" aria-label="David's LinkedIn Profile">
+                        <svg class="w-7 h-7 group-hover:animate-wiggle" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        <span class="sr-only">LinkedIn</span>
+                    </a>
+                </div>
             </div>
-            <p class="text-sm mt-4">Built with HTML, CSS, and JavaScript</p>
+            <p>© <span id="currentYear"></span> David Sebastiampillai. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Scroll to top button -->
-    <button id="scrollTop" aria-label="Scroll to top" class="hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+    <button id="backToTopBtn" title="Go to top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+            <path fill-rule="evenodd" d="M11.47 2.47a.75.75 0 011.06 0l7.5 7.5a.75.75 0 11-1.06 1.06l-6.22-6.22V21a.75.75 0 01-1.5 0V4.81l-6.22 6.22a.75.75 0 11-1.06-1.06l7.5-7.5z" clip-rule="evenodd" />
         </svg>
     </button>
 
     <script>
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
-            mobileMenuButton.setAttribute('aria-expanded', !expanded);
-            mobileMenu.classList.toggle('hidden');
-            
-            // Toggle between menu icons
-            mobileMenuButton.querySelectorAll('svg').forEach(icon => {
-                icon.classList.toggle('hidden');
-                icon.classList.toggle('block');
-            });
-        });
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('#mobile-menu .nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenuButton.click();
+        // Hero Section Background and Subtitle Color Transition
+        document.addEventListener('DOMContentLoaded', () => {
+            const heroSection = document.getElementById('home');
+            const heroSubtitleEl = document.getElementById('heroSubtitle');
+            
+            setTimeout(() => {
+                heroSection.classList.remove('hero-bg-initial');
+                heroSection.classList.add('hero-bg-final');
+                if (heroSubtitleEl) {
+                    // Make subtitle text color accent-color from the CSS variables
+                    heroSubtitleEl.style.color = getComputedStyle(document.documentElement).getPropertyValue('--accent-color').trim();
                 }
-            });
-        });
+            }, 500); // Delay for background transition
 
-        // Active navigation highlighting
-        const navLinks = document.querySelectorAll('.nav-link');
-        const sections = document.querySelectorAll('section[id], header[id]');
-        
-        function updateActiveLink() {
-            let currentSectionId = '';
-            const scrollPosition = window.scrollY + 100; // Offset for sticky header
-            
-            // Find current section
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                    currentSectionId = section.getAttribute('id');
-                    
-                    // Update ARIA attributes for accessibility
-                    navLinks.forEach(link => {
-                        const href = link.getAttribute('href').substring(1);
-                        link.setAttribute('aria-current', href === currentSectionId ? 'page' : 'false');
-                    });
+            // Dynamic Hero Subtitle Typing Animation
+            if (heroSubtitleEl) {
+                const subtitles = ["Lead Consultant", "Market Research", "Econometrics"];
+                let currentPartIndex = 0;
+                let currentCharIndex = 0;
+                const typingSpeed = 70; // ms
+                const pauseBetweenParts = 500; // ms
+                const initialDelay = 1200; // Start after hero text fade-in and bg transition starts
+
+                function typeSubtitle() {
+                    if (currentPartIndex < subtitles.length) {
+                        const currentPartText = subtitles[currentPartIndex];
+                        if (currentCharIndex < currentPartText.length) {
+                            heroSubtitleEl.innerHTML += currentPartText.charAt(currentCharIndex);
+                            currentCharIndex++;
+                            setTimeout(typeSubtitle, typingSpeed);
+                        } else {
+                            currentPartIndex++;
+                            currentCharIndex = 0;
+                            if (currentPartIndex < subtitles.length) {
+                                heroSubtitleEl.innerHTML += ' <span class="text-off-white/70 font-light">|</span> ';
+                                setTimeout(typeSubtitle, pauseBetweenParts);
+                            }
+                        }
+                    }
                 }
-            });
-            
-            // Update active class
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${currentSectionId}`) {
-                    link.classList.add('active');
-                }
-            });
-        }
-
-        // Dark mode toggle functionality
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const mobileDarkModeToggle = document.getElementById('mobileDarkModeToggle');
-        const lightIcon = document.getElementById('lightIcon');
-        const darkIcon = document.getElementById('darkIcon');
-        
-        // Check for saved dark mode preference
-        if (localStorage.getItem('darkMode') === 'true' || 
-            (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && 
-            localStorage.getItem('darkMode') !== 'false')) {
-            document.documentElement.classList.add('dark');
-            lightIcon.classList.add('hidden');
-            darkIcon.classList.remove('hidden');
-        }
-        
-        function toggleDarkMode() {
-            document.documentElement.classList.toggle('dark');
-            const isDarkMode = document.documentElement.classList.contains('dark');
-            localStorage.setItem('darkMode', isDarkMode);
-            
-            // Toggle icons
-            lightIcon.classList.toggle('hidden');
-            darkIcon.classList.toggle('hidden');
-        }
-        
-        darkModeToggle.addEventListener('click', toggleDarkMode);
-        if (mobileDarkModeToggle) {
-            mobileDarkModeToggle.addEventListener('click', toggleDarkMode);
-        }
-
-        // Scroll to top button functionality
-        const scrollTopBtn = document.getElementById('scrollTop');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                scrollTopBtn.classList.remove('hidden');
-                scrollTopBtn.classList.add('flex');
-            } else {
-                scrollTopBtn.classList.add('hidden');
-                scrollTopBtn.classList.remove('flex');
+                setTimeout(() => {
+                     heroSubtitleEl.innerHTML = ''; // Clear for typing
+                     typeSubtitle();
+                }, initialDelay);
             }
         });
-        
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
 
-        // Update copyright year
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-        
-        // Initialize active link on page load
-        window.addEventListener('DOMContentLoaded', updateActiveLink);
-        window.addEventListener('scroll', updateActiveLink);
-        window.addEventListener('resize', updateActiveLink);
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('nav a[href^="#"], a[href^="#about"].animate-bounce-slow, #backToTopBtn').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
+                const targetId = this.getAttribute('href') || (this.id === 'backToTopBtn' ? '#home' : null);
+                if (!targetId) return;
+
                 const targetElement = document.querySelector(targetId);
-                
                 if (targetElement) {
-                    // Calculate position with offset for sticky header
-                    const headerOffset = 80;
-                    const elementPosition = targetElement.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    const navHeight = document.querySelector('nav.sticky') ? document.querySelector('nav.sticky').offsetHeight : 0;
+                    let targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight; 
+                    
+                    // Add a bit more offset for non-home sections to avoid cutting off titles
+                    if (targetId !== '#home') {
+                        targetPosition -= 20; 
+                    }
                     
                     window.scrollTo({
-                        top: offsetPosition,
+                        top: targetPosition,
                         behavior: 'smooth'
                     });
-                    
-                    // Update URL without page jump
-                    window.history.pushState(null, null, targetId);
                 }
             });
         });
+        
+        // Intersection Observer for section animations
+        const sectionsToAnimate = document.querySelectorAll('main > section');
+        const animationOptions = {
+            root: null,
+            threshold: 0.1, // Trigger when 10% of the section is visible
+            rootMargin: "0px 0px -50px 0px" // Start animation a bit before it's fully in view
+        };
+
+        const sectionObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                
+                // Apply animation only if it's not the hero section and hasn't been animated yet
+                if (entry.target.id !== 'home' && !entry.target.classList.contains('has-animated')) {
+                    entry.target.classList.add('animate-fade-in-up', 'has-animated');
+                    entry.target.style.opacity = '1'; // Ensure opacity is set for the animation
+                } else if (entry.target.id === 'home' && !entry.target.classList.contains('has-animated')) {
+                     // Mark hero as animated to prevent re-triggering if logic changes
+                     entry.target.classList.add('has-animated');
+                }
+                // observer.unobserve(entry.target); // Optional: unobserve after animation
+            });
+        }, animationOptions);
+
+        sectionsToAnimate.forEach(section => {
+            // Set initial opacity to 0 for sections that will fade in, except hero
+            if (section.id !== 'home') {
+                section.style.opacity = '0';
+            }
+            sectionObserver.observe(section);
+        });
+
+        // Experience Accordion Logic
+        const accordionItems = document.querySelectorAll('.experience-accordion-item');
+        accordionItems.forEach(item => {
+            const header = item.querySelector('.accordion-header');
+            const content = item.querySelector('.accordion-content');
+            const title = item.querySelector('.accordion-title'); 
+
+            header.addEventListener('click', () => {
+                const isOpen = content.classList.contains('open');
+                const isExpanded = header.getAttribute('aria-expanded') === 'true';
+
+                // Close all other accordions
+                accordionItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.querySelector('.accordion-content').classList.remove('open');
+                        const otherHeader = otherItem.querySelector('.accordion-header');
+                        otherHeader.classList.remove('active');
+                        otherHeader.setAttribute('aria-expanded', 'false');
+                        const otherTitle = otherItem.querySelector('.accordion-title');
+                        if (otherTitle) otherTitle.style.color = 'var(--deep-navy)';
+                    }
+                });
+
+                if (isOpen) {
+                    content.classList.remove('open');
+                    header.classList.remove('active');
+                    header.setAttribute('aria-expanded', 'false');
+                    if (title) title.style.color = 'var(--deep-navy)'; 
+                } else {
+                    content.classList.add('open');
+                    header.classList.add('active');
+                    header.setAttribute('aria-expanded', 'true');
+                    if (title) title.style.color = 'var(--navy-color)'; 
+                }
+            });
+        });
+
+
+        // Interactive 3D Cube Logic
+        const cube = document.getElementById('interactiveCube');
+        if (cube) {
+            let isDragging = false;
+            let previousMouseX = 0;
+            let previousMouseY = 0;
+            let rotationX = -20; // Initial tilt
+            let rotationY = -30; // Initial rotation
+
+            const applyRotation = () => {
+                cube.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
+            };
+
+            const startDrag = (clientX, clientY) => {
+                isDragging = true;
+                previousMouseX = clientX;
+                previousMouseY = clientY;
+                cube.style.transition = 'none'; // Disable transition during drag for responsiveness
+            };
+
+            const drag = (clientX, clientY) => {
+                if (!isDragging) return;
+                
+                const deltaX = clientX - previousMouseX;
+                const deltaY = clientY - previousMouseY;
+
+                rotationY += deltaX * 0.5; // Adjust sensitivity as needed
+                rotationX -= deltaY * 0.5; // Adjust sensitivity as needed
+
+                applyRotation();
+
+                previousMouseX = clientX;
+                previousMouseY = clientY;
+            };
+
+            const endDrag = () => {
+                if (isDragging) {
+                    isDragging = false;
+                    cube.style.transition = 'transform 0.1s linear'; // Re-enable smooth transition
+                }
+            };
+
+            // Mouse events
+            cube.addEventListener('mousedown', (e) => { e.preventDefault(); startDrag(e.clientX, e.clientY); });
+            document.addEventListener('mousemove', (e) => { drag(e.clientX, e.clientY); });
+            document.addEventListener('mouseup', endDrag);
+            document.addEventListener('mouseleave', endDrag); // Stop dragging if mouse leaves window
+
+            // Touch events
+            cube.addEventListener('touchstart', (e) => { e.preventDefault(); startDrag(e.touches[0].clientX, e.touches[0].clientY); }, { passive: false });
+            document.addEventListener('touchmove', (e) => { if (isDragging) { e.preventDefault(); drag(e.touches[0].clientX, e.touches[0].clientY); } }, { passive: false });
+            document.addEventListener('touchend', endDrag);
+            document.addEventListener('touchcancel', endDrag);
+            
+            applyRotation(); // Apply initial rotation
+        }
+
+        // Back to Top Button Logic
+        const backToTopButton = document.getElementById('backToTopBtn');
+        if (backToTopButton) {
+            window.onscroll = function() {
+                if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            };
+        }
+
     </script>
 </body>
 </html>
